@@ -91,24 +91,6 @@ const markup = itemsGallery(images);
 
 gallery.innerHTML = markup;
 
-gallery.addEventListener('click', (e)=>{
-  e.preventDefault();
-  if(e.target === e.currentTarget) return;
-  const img = e.target.closest('img');
-  const description = img.alt;
-  const image = images.find(el => el.description === description);
-
-  const markup = `
-  <li class="gallery-item">
-    <a class="gallery-link" href="#">
-      <img
-        class="gallery-image"
-        src="${image.preview}"
-        data-source="${image.original}"
-        alt="${image.description}"
-      /></a></li>`;
-})
-
 new SimpleLightbox('.gallery a', {
   captions: true,
   captionsData: 'alt',
